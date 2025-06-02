@@ -4,7 +4,9 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 
 ---
 
-![Finance Banner](https://img.freepik.com/free-vector/hand-drawn-finance-concept_23-2148798170.jpg?t=st=1717236487~exp=1717240087~hmac=53e198ff2c29529d75baf18d6a12bc52a6e2b377805b11931828d7093ac48a1d&w=1380)
+<p align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/1165/1165670.png" alt="Finance Icon" width="120" height="120">
+</p>
 
 ---
 
