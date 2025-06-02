@@ -8,16 +8,6 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 
 ---
 
-## 📦 Features
-
-- 👤 User registration and login with password hashing (bcrypt)
-- ➕ Add and view income
-- ➖ Add and view expenses
-- 📊 View financial summary reports
-- 🗂 Organized file structure and SQLite3 database
-
----
-
 ## 🛠️ Tech Stack
 
 | Technology   | Purpose                    |
@@ -27,5 +17,5 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 | bcrypt       | Secure Password Hashing     |
 | CLI (Terminal)| User Interaction           |
 
----
+
 
