@@ -5,7 +5,7 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 ---
 
 <p align="center">
-  <img src="[https://cdn-icons-png.flaticon.com/512/1165/1165670.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Ffinance-management&psig=AOvVaw2HSfhhQ3EASBcG3o4962Nx&ust=1748927336599000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqGAoTCPCpr5r80Y0DFQAAAAAdAAAAABChAQ)" alt="Finance Icon" width="120" height="120">
+  <img src="[https://cdn-icons-png.flaticon.com/512/1165/1165670.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Ffinance-management&psig=AOvVaw2HSfhhQ3EASBcG3o4962Nx&ust=1748927336599000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqGAoTCPCpr5r80Y0DFQAAAAAdAAAAABChAQ)" width="120" height="120">
 </p>
 
 ---
