@@ -5,7 +5,7 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 ---
 
 <p align="center">
-  <img src="https://img.freepik.com/premium-vector/online-mobile-payment-banking-service-concept-woman-pays-with-mobile-phone-successfully-safely-flat-vector-modern-illustration_566886-9730.jpg" width="320" height="220">
+  <img src="https://img.freepik.com/premium-vector/online-mobile-payment-banking-service-concept-woman-pays-with-mobile-phone-successfully-safely-flat-vector-modern-illustration_566886-9730.jpg" width="320" height="380">
 </p>
 
 ---
