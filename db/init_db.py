@@ -15,6 +15,8 @@ def initialize_db():
           password TEXT NOT NULL
      )
        ''')
+    
+
 
     # Create table for transactions
     cursor.execute('''
@@ -29,6 +31,15 @@ def initialize_db():
             FOREIGN KEY(user_id) REFERENCES users(id)
         )
     ''')
+    
+
+    # view user and transaction table
+    cursor.execute("SELECT * FROM users;")
+    rows = cursor.fetchall()
+    print(rows)
+    cursor.execute("SELECT * FROM transactions;")
+    rows = cursor.fetchall()
+    print(rows)
 
     # Commit the changes and close the connection
     connection.commit()

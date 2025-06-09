@@ -4,11 +4,13 @@ from datetime import datetime
 
 db_path = os.path.join("data", "finance.db")
 
-class FinanceManager:
+class TransactionManager:
 
     def __init__(self, username):
         self.username = username
         self.user_id = self.get_user_id()
+        if self.user_id is None:
+            raise ValueError("User not found. Please register first.")
 
     # Retrieves the user ID based on the username
     def get_user_id(self):
@@ -20,19 +22,19 @@ class FinanceManager:
         return result[0] if result else None
     
     # Adds transaction to the database
-    
-    def add_transaction(self, type, category, description, amount):
+
+    def add_transactions(self):
         try:
             transaction_type = input("Enter transaction type (income/expense): ").strip().lower()
-            category = input("Enter category (e.g., Food, Transport, Rent): ").strip()
+            category = input("Enter category (e.g., Food, Transport, Rent, Salary): ").strip()
             description = input("Enter description: ")
             amount = float(input("Enter amount: "))
 
-            conn = sqlite3.connect("db_path")
+            conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
             cursor.execute('''
-                insert into transactions("user_id","type", "category", "description", "amount","date")
-                            values (?,?,?,?,?,?)",()''', (self.user_id,transaction_type,category, description, amount, datetime.now())
+                insert into transactions(user_id , type, category, description, amount,date)
+                            values (?,?,?,?,?,?)''', (self.user_id,transaction_type,category, description, amount, datetime.now())
                              )
             conn.commit()
             print("Transaction added successfully")
@@ -45,7 +47,7 @@ class FinanceManager:
     
     # update the transaction data
 
-    def update_transaction(self):
+    def update_transactions(self):
         try:
             trans_id = input("Enter the transaction id to update:")
 
@@ -53,7 +55,7 @@ class FinanceManager:
             new_type = input("New type (leave blank to keep current):").strip()              
             new_category = input(" New category (leave blank to keep current): ").strip()
             new_description = input("New description (leave blank to keep current): ").strip()
-            new_amount = float(input("New amount (₹) (leave blank to keep current): ")).strip()
+            new_amount = float(input("New amount (₹) (leave blank to keep current): "))
 
             # Build dynamic query
             fields = []
@@ -112,7 +114,7 @@ class FinanceManager:
 
     # delete a transaction 
 
-    def delete_transaction(self):
+    def delete_transactions(self):
         try:
             trans_id = input("Enter the transaction id to delete: ")
 
@@ -137,7 +139,61 @@ class FinanceManager:
             conn.close()
 
         
-    # view transactions data
+    # view transactions
+
+    def view_transactions(self):
+        
+           conn = sqlite3.connect(db_path)
+           cursor = conn.cursor()
+           cursor.execute('''
+            SELECT id, type, category, description, amount, date
+            FROM transactions
+            WHERE user_id = ?
+            ORDER BY date DESC
+            ''', (self.user_id,))
+           rows = cursor.fetchall()
+           conn.close()
+
+           if not rows:
+               print("No transactions found.")
+           else:
+               print("\n Your Transactions:")
+               for row in rows:
+                   print(f"ID: {row[0]} | {row[1]} [{row[2]}] - {row[3]} | {row[4]} | {row[5]}")
+
+
+
+if __name__ == "__main__":
+    try:
+        username = input("👤 Enter your username to log in: ").strip()
+        tm = TransactionManager(username)
+
+        while True:
+            print("\n MENU")
+            print("1️ Add Transaction")
+            print("2️ Update Transaction")
+            print("3️ Delete Transaction")
+            print("4️ View Transactions")
+            print("5 Exit")
+
+            choice = input(" Choose an option: ").strip()
+
+            if choice == '1':
+                tm.add_transactions()
+            elif choice == '2':
+                tm.update_transactions()
+            elif choice == '3':
+                tm.delete_transactions()
+            elif choice == '4':
+                tm.view_transactions()
+            elif choice == '5':
+                print("Goodbye!")
+                break
+            else:
+                print("Invalid choice. Try again.")
+
+    except ValueError as ve:
+        print("Error:", ve)
 
             
     
