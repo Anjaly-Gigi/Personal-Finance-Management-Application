@@ -29,5 +29,4 @@ def register_user():
     finally:
         conn.close()
 
-if __name__ == "__main__":
-    register_user()
+

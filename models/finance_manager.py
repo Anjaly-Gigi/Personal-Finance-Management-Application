@@ -23,7 +23,7 @@ class TransactionManager:
     
     # Adds transaction to the database
 
-    def add_transactions(self):
+    def add_transaction(self):
         try:
             transaction_type = input("Enter transaction type (income/expense): ").strip().lower()
             category = input("Enter category (e.g., Food, Transport, Rent, Salary): ").strip()
@@ -163,37 +163,3 @@ class TransactionManager:
 
 
 
-if __name__ == "__main__":
-    try:
-        username = input(" Enter your username to log in: ").strip()
-        tm = TransactionManager(username)
-
-        while True:
-            print("\n MENU")
-            print("1️ Add Transaction")
-            print("2️ Update Transaction")
-            print("3️ Delete Transaction")
-            print("4️ View Transactions")
-            print("5 Exit")
-
-            choice = input(" Choose an option: ").strip()
-
-            if choice == '1':
-                tm.add_transactions()
-            elif choice == '2':
-                tm.update_transactions()
-            elif choice == '3':
-                tm.delete_transactions()
-            elif choice == '4':
-                tm.view_transactions()
-            elif choice == '5':
-                print("Goodbye!")
-                break
-            else:
-                print("Invalid choice. Try again.")
-
-    except ValueError as ve:
-        print("Error:", ve)
-
-            
-    

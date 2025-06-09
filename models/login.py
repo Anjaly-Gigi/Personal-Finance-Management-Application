@@ -10,6 +10,10 @@ def login_user():
     username = input("Enter your username: ")
     password = input("Enter your password: ")
 
+    if not username or not password:
+        print("⚠️ Username and password cannot be empty.")
+        return None
+
     try:
         # Connect to the database
         conn = sqlite3.connect(DB_PATH)
@@ -25,6 +29,7 @@ def login_user():
             # Verify password
             if bcrypt.checkpw(password.encode('utf-8'), stored_hashed_password):
                 print("Login successful!")
+                return username
             else:
                 print("Incorrect password.")
         else:
@@ -36,5 +41,5 @@ def login_user():
     finally:
         conn.close()
 
-if __name__ == "__main__":
-    login_user()
+    
+

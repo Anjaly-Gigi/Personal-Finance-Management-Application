@@ -33,14 +33,6 @@ def initialize_db():
     ''')
     
 
-    # view user and transaction table
-    cursor.execute("SELECT * FROM users;")
-    rows = cursor.fetchall()
-    print(rows)
-    cursor.execute("SELECT * FROM transactions;")
-    rows = cursor.fetchall()
-    print(rows)
-
     # Commit the changes and close the connection
     connection.commit()
     connection.close()
