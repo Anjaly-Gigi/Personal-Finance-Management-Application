@@ -165,7 +165,7 @@ class TransactionManager:
 
 if __name__ == "__main__":
     try:
-        username = input("👤 Enter your username to log in: ").strip()
+        username = input(" Enter your username to log in: ").strip()
         tm = TransactionManager(username)
 
         while True:
