@@ -54,34 +54,20 @@ To start the app: `python main.py`
 11. Logout
 
 -   Transactions
-Add: Record income/expense with category, amount, and description.
-
-Update: Modify existing transactions by ID.
-
-Delete: Remove transactions by ID.
-
-View: List all user transactions sorted by date.
-
-📊 Reports
-Monthly Report: Summary of income, expenses, and savings for a given month/year.
-
-Yearly Report: Summary for the whole year.
-
-💵 Budgeting
-Set Budget: Define budget for categories (e.g., Food, Rent).
-
-Alerts: If a new expense causes the user to exceed the set budget, a warning is shown.
-
-View Budgets: List all category-wise budgets.
-
-💾 Data Backup & Restore
-Backup Database: Creates a .db backup file inside the data/backups/ directory.
-
-Restore Database: Restore previous state by selecting a backup file.
-
-
-
-
+    - Add income/expense with category, amount, and description.
+    - Modify existing transactions by ID.
+    - Delete transactions by ID.
+    - View all user transactions sorted by date.
+-  Reports
+    - Monthly Report: Summary of income, expenses, and savings for a given month/year.
+    - Yearly Report: Summary for the whole year.
+-  Budgeting
+    - Set Budget for categories (e.g., Food, Rent).
+    - If a new expense causes the user to exceed the set budget, a warning is shown.
+    - List all category-wise budgets.
+-  Data Backup & Restore
+    - Backup Database: Creates a .db backup file inside the data/backups/ directory.
+    - Restore Database: Restore previous state by selecting a backup file.
 
 ###  Testing  
 Run unit tests with:  `python -m unittest discover tests`
