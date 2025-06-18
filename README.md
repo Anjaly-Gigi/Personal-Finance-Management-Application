@@ -20,7 +20,6 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 |-------------|-----------------------------|
 | Python       | Core Programming Language   |
 | SQLite3      | Lightweight Database        |
-| bcrypt       | Secure Password Hashing     |
 | CLI (Terminal)| User Interaction           |
 
 
