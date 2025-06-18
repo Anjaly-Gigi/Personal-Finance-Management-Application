@@ -32,11 +32,24 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 To start the app: `python main.py`
 
 ### User Manuel  
-When you run `python main.py` , 2 options appear one is to register and other is to login.  
-### Authrntication
+-  When you run `python main.py` , 2 options appear one is to register and other is to login.  
 - If you're a new user, choose "Register" and provide a unique username and password.
 - Existing users can log in using their credentials.
 - Passwords are securely hashed using `bcrypt`.
+- Once logged in, the app will show the main menu:
+    `------- MENU ------`
+`1. Add Transaction
+2. Update Transaction
+3. Delete Transaction
+4. View Transactions
+5. Monthly Report
+6. Yearly Report
+7. Set Budget
+8. View Budgets
+9. Backup Database
+10. Restore Database
+11. Logout`
+
 
 
 
