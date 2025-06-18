@@ -31,6 +31,16 @@ def initialize_db():
             FOREIGN KEY(user_id) REFERENCES users(id)
         )
     ''')
+
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS budgets (
+        user_id INTEGER,
+        category TEXT,
+        amount REAL,
+        PRIMARY KEY (user_id, category),
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+  ''')
     
 
     # Commit the changes and close the connection

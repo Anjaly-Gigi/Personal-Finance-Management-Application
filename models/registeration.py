@@ -7,8 +7,12 @@ DB_PATH = os.path.join("data", "finance.db")
 
 def register_user():
     print("\n=== User Registration ===")
-    username = input("Enter a username: ")
-    password = input("Enter a password: ")
+    username = input("Enter a username: ").strip()
+    password = input("Enter a password: ").strip()
+
+    if not username or not password:
+        print("Username and password cannot be empty.")
+        return
 
     # Hash the password
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())

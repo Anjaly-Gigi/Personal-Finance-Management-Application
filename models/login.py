@@ -7,11 +7,11 @@ DB_PATH = os.path.join("data", "finance.db")
 
 def login_user():
     print("\n=== User Login ===")
-    username = input("Enter your username: ")
-    password = input("Enter your password: ")
+    username = input("Enter your username: ").strip()
+    password = input("Enter your password: ").strip()
 
     if not username or not password:
-        print("⚠️ Username and password cannot be empty.")
+        print(" Username and password cannot be empty.")
         return None
 
     try:

@@ -1,6 +1,7 @@
 import sqlite3
 import os 
 from datetime import datetime
+from models.budget_manager import BudgetManager  
 
 db_path = os.path.join("data", "finance.db")
 
@@ -38,6 +39,11 @@ class TransactionManager:
                              )
             conn.commit()
             print("Transaction added successfully")
+
+             #  Budget check only for expense
+            if transaction_type == 'expense':
+                 BudgetManager(self.username).check_budget_alert(category)
+
         except Exception as e:
             print(f"Error: {e}")
             
@@ -47,7 +53,7 @@ class TransactionManager:
     
     # update the transaction data
 
-    def update_transactions(self):
+    def update_transaction(self):
         try:
             trans_id = input("Enter the transaction id to update:")
 
@@ -55,7 +61,7 @@ class TransactionManager:
             new_type = input("New type (leave blank to keep current):").strip()              
             new_category = input(" New category (leave blank to keep current): ").strip()
             new_description = input("New description (leave blank to keep current): ").strip()
-            new_amount = float(input("New amount (₹) (leave blank to keep current): "))
+            new_amount = input("New amount (₹) (leave blank to keep current): ").strip()
 
             # Build dynamic query
             fields = []
@@ -70,13 +76,16 @@ class TransactionManager:
             if new_description:
                 fields.append("description = ?")
                 values.append(new_description)
+
             if new_amount:
-                 try:
-                     values.append(float(new_amount))
-                     fields.append("amount = ?")
-                 except ValueError:
-                     print("Invalid amount.")
-                     return
+                try:
+                    new_amount = float(new_amount)
+                    fields.append("amount = ?")
+                    values.append(new_amount)
+                except ValueError:
+                    print("Invalid amount entered.")
+                    return
+
 
             if not fields:
                 print("No fields to update.")
@@ -114,7 +123,7 @@ class TransactionManager:
 
     # delete a transaction 
 
-    def delete_transactions(self):
+    def delete_transaction(self):
         try:
             trans_id = input("Enter the transaction id to delete: ")
 
@@ -162,4 +171,55 @@ class TransactionManager:
                    print(f"ID: {row[0]} | {row[1]} [{row[2]}] - {row[3]} | {row[4]} | {row[5]}")
 
 
+    def monthly_report(self):
+        try:
+            month = int(input("Enter month (1-12): "))
+            year = int(input("Enter year (e.g., 2025): "))
 
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute('''
+                SELECT type, amount
+                FROM transactions
+                WHERE user_id = ? AND strftime('%m', date) = ? AND strftime('%Y', date) = ?
+            ''', (self.user_id, f"{month:02}", str(year)))
+            data = cursor.fetchall()
+            conn.close()
+
+            income = sum(amount for t_type, amount in data if t_type == 'income')
+            expense = sum(amount for t_type, amount in data if t_type == 'expense')
+            savings = income - expense
+
+            print(f"\nMonthly Report - {month}/{year}")
+            print(f"Total Income  : ₹{income:.2f}")
+            print(f"Total Expense : ₹{expense:.2f}")
+            print(f"Net Savings   : ₹{savings:.2f}")
+
+        except Exception as e:
+            print("Error generating monthly report:", e)
+
+    def yearly_report(self):
+        try:
+            year = input("Enter year (e.g., 2025): ").strip()
+
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute('''
+                SELECT type, amount
+                FROM transactions
+                WHERE user_id = ? AND strftime('%Y', date) = ?
+            ''', (self.user_id, year))
+            data = cursor.fetchall()
+            conn.close()
+
+            income = sum(amount for t_type, amount in data if t_type == 'income')
+            expense = sum(amount for t_type, amount in data if t_type == 'expense')
+            savings = income - expense
+
+            print(f"\n Yearly Report - {year}")
+            print(f"Total Income  : ₹{income:.2f}")
+            print(f"Total Expense : ₹{expense:.2f}")
+            print(f"Net Savings   : ₹{savings:.2f}")
+
+        except Exception as e:
+            print("Error generating yearly report:", e)
