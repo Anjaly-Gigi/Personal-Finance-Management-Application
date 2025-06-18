@@ -31,7 +31,14 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 ### Running the Application
 To start the app: `python main.py`
 
-### Working of app
+### User Manuel  
+When you run `python main.py` , 2 options appear one is to register and other is to login.  
+### Authrntication
+- If you're a new user, choose "Register" and provide a unique username and password.
+- Existing users can log in using their credentials.
+- Passwords are securely hashed using `bcrypt`.
+
+
 
 
 ###  Testing  
