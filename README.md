@@ -14,13 +14,21 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
  * Generate monthly and yearly reports.
  * Backup and restore financial data
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Technology   | Purpose                    |
 |-------------|-----------------------------|
 | Python       | Core Programming Language   |
 | SQLite3      | Lightweight Database        |
 | CLI (Terminal)| User Interaction           |
+
+## Installation Instructions
+
+###  System Requirements
+* Python 3.10 or higher
+* pip (Python package manager)
+
+
 
 
 
