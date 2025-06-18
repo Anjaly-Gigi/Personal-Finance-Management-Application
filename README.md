@@ -32,12 +32,14 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 To start the app: `python main.py`
 
 ### User Manuel  
--  When you run `python main.py` , 2 options appear one is to register and other is to login.  
-- If you're a new user, choose "Register" and provide a unique username and password.
-- Existing users can log in using their credentials.
-- Passwords are securely hashed using `bcrypt`.
+-  When you run `python main.py` , 2 options appear one is to register and other is to login.
+-  Authentication
+   - If you're a new user, choose "Register" and provide a unique username and password.
+   - Existing users can log in using their credentials.
+   - Passwords are securely hashed using `bcrypt`.
+
 - Once logged in, the app will show the main menu:
-  
+    
 ---------MENU------------
 1. Add Transaction
 2. Update Transaction
@@ -49,7 +51,33 @@ To start the app: `python main.py`
 8. View Budgets
 9. Backup Database
 10. Restore Database
-11. Logout`
+11. Logout
+
+-   Transactions
+Add: Record income/expense with category, amount, and description.
+
+Update: Modify existing transactions by ID.
+
+Delete: Remove transactions by ID.
+
+View: List all user transactions sorted by date.
+
+📊 Reports
+Monthly Report: Summary of income, expenses, and savings for a given month/year.
+
+Yearly Report: Summary for the whole year.
+
+💵 Budgeting
+Set Budget: Define budget for categories (e.g., Food, Rent).
+
+Alerts: If a new expense causes the user to exceed the set budget, a warning is shown.
+
+View Budgets: List all category-wise budgets.
+
+💾 Data Backup & Restore
+Backup Database: Creates a .db backup file inside the data/backups/ directory.
+
+Restore Database: Restore previous state by selecting a backup file.
 
 
 
