@@ -28,6 +28,14 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 * Python 3.10 or higher
 * pip (Python package manager)
 
+### Running the Application
+To start the app:  
+  python main.py
+
+###  Testing  
+Run unit tests with:  
+  python -m unittest discover tests
+
 
 
 
