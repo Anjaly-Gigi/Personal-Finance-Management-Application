@@ -29,12 +29,13 @@ A simple and secure **Command-Line Interface (CLI)** based application to manage
 * pip (Python package manager)
 
 ### Running the Application
-To start the app:  
-  python main.py
+To start the app: `python main.py`
+
+### Working of app
+
 
 ###  Testing  
-Run unit tests with:  
-  python -m unittest discover tests
+Run unit tests with:  `python -m unittest discover tests`
 
 
 
