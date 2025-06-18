@@ -37,8 +37,8 @@ To start the app: `python main.py`
 - Existing users can log in using their credentials.
 - Passwords are securely hashed using `bcrypt`.
 - Once logged in, the app will show the main menu:
-    `------- MENU ------`
-`1. Add Transaction
+---------MENU------------
+1. Add Transaction
 2. Update Transaction
 3. Delete Transaction
 4. View Transactions
